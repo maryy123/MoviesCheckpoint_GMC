@@ -1,7 +1,12 @@
 .App {
   text-align: center;
+  background-color: whitesmoke;
+  height: 100%;
 }
-
+* {
+  margin: 0%;
+  padding: 0%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -22,6 +27,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+.Add {
+  margin-top: 4%;
+
+  margin-left: 1.5%;
 }
 
 .App-link {
