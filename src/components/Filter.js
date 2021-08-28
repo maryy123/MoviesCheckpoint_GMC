@@ -9,7 +9,9 @@ const Filter = ({ items, input, rate, handleName }) => {
   return (
     <div>
       {t.length > 0
-        ? t.map((el, i) => <Movie item={el} key={i} handleName={handleName} />)
+        ? t.map((el, i) => (
+            <Movie item={el} key={el.id} handleName={handleName} />
+          ))
         : "No such movie !!"}
     </div>
   );
