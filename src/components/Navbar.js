@@ -11,6 +11,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import Box from "@material-ui/core/Box";
 import { Rating } from "@material-ui/lab";
 
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -81,7 +83,10 @@ const Navbar = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            4UMovie
+            <Link to="/" style={{ textDecoration: "none" }}>
+              4UMovie
+            </Link>
+            {/* 4UMovie */}
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -124,6 +129,8 @@ const Navbar = (props) => {
           </div>
         </Toolbar>
       </AppBar>
+
+      {/* Route */}
     </div>
   );
 };

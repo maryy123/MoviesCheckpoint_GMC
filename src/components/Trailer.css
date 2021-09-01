@@ -1,0 +1,48 @@
+.trailer {
+  display: flex;
+  width: 100%;
+  margin-top: 2%;
+  margin-left: -5%;
+  position: relative;
+}
+
+.trailer Movie {
+  width: 100%;
+}
+
+.trailer iframe,
+.no-available {
+  width: 520px;
+  height: 400px;
+  /* z-index: -1; */
+  margin-top: 30%;
+  margin-right: 5%;
+  border-radius: 20px;
+}
+.no-available {
+  font-size: xx-large;
+  margin-top: 45%;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.section button {
+  z-index: 1;
+  margin-top: 7%;
+  margin-left: 9%;
+  width: 19%;
+  height: 5%;
+  background-color: #e8b912;
+  color: whitesmoke;
+  border-radius: 30px;
+  position: absolute;
+  top: 0%;
+}
+
+.section button:hover {
+  opacity: 0.9;
+}

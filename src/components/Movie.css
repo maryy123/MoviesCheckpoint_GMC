@@ -24,8 +24,9 @@
 .movie_card {
   position: relative;
   display: block;
-  width: 800px;
-  height: 350px;
+  /* width: 800px; */
+  width: 70%;
+  height: 500px;
   margin: 80px auto;
   overflow: hidden;
   border-radius: 10px;
@@ -40,7 +41,7 @@
 
 .info_section {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   background-blend-mode: multiply;
   z-index: 2;
@@ -123,13 +124,21 @@ i {
   border-radius: 11px;
 }
 
+/* *** */
 @media screen and (min-width: 768px) {
   .movie_header {
     width: 77%;
   }
 
   .movie_desc {
-    width: 60%;
+    width: 100%;
+    margin-top: -4%;
+    /* height: 90%; */
+    /* display: flex; */
+  }
+
+  .movie_desc p {
+    width: 45%;
   }
 
   .info_section {
@@ -163,6 +172,9 @@ i {
   .movie_desc {
     width: 100%;
   }
+  .movie_desc p {
+    width: 45%;
+  }
 
   .info_section {
     background: linear-gradient(to top, #e5e6e6 50%, transparent 100%);
@@ -170,6 +182,11 @@ i {
   }
 }
 
+video {
+  width: 55%;
+  height: 100%;
+  border-radius: 20px;
+}
 /* .bright_back {
   background: url("https://occ-0-2433-448.1.nflxso.net/art/cd5c9/3e192edf2027c536e25bb5d3b6ac93ced77cd5c9.jpg");
 } */

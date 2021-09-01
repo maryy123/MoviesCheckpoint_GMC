@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./App.css";
 import AddMovie from "./components/AddMovie";
-// import Filter from "./components/Filter";
 import Footer from "./components/Footer";
 import MoviesList from "./components/MoviesList";
 import Navbar from "./components/Navbar";
+import { Route, Switch } from "react-router-dom";
+import Trailer from "./components/Trailer";
 
 function App() {
   let moviesData = [
@@ -18,6 +19,7 @@ function App() {
       type: "Action | Crime",
       description:
         "A relentlessly-paced hybrid of gritty crime thriller and Lovecraftian supernatural horror, The Devil's Mile follows a trio of kidnappers who take an ill-advised detour en route to deliver...",
+      video: "https://www.youtube.com/embed/iGTSDqSLXN0",
     },
     {
       id: Math.random(),
@@ -29,6 +31,7 @@ function App() {
       type: "Western",
       description:
         "A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad.",
+      video: "https://www.youtube.com/embed/MNGQ1hUyx-k",
     },
     {
       id: Math.random(),
@@ -40,6 +43,7 @@ function App() {
       type: "Crime | Drama",
       description:
         "A mentally unstable veteran works as a nighttime taxi driver in New York City, where the perceived decadence and sleaze fuels his urge for violent action by attempting to liberate a presidential campaign worker and an underage prostitute.",
+      video: "https://www.youtube.com/embed/UUxD4-dEzn0",
     },
     {
       id: Math.random(),
@@ -51,6 +55,7 @@ function App() {
       type: "Action | Adventure",
       description:
         "In a self-destructing world, a vengeful Australian policeman sets out to stop a violent motorcycle gang.",
+      video: "https://www.youtube.com/embed/hEJnMQG9ev8",
     },
     {
       id: Math.random(),
@@ -62,6 +67,7 @@ function App() {
       type: "Comedy | Drama",
       description:
         "A family determined to get their young daughter into the finals of a beauty pageant take a cross-country trip in their VW bus.",
+      video: "https://www.youtube.com/embed/bQ7BZTMLImA",
     },
     {
       id: Math.random(),
@@ -75,6 +81,7 @@ function App() {
         "The lead character, called 'The Bride,' was a member of the Deadly Viper Assassination Squad, led by her lover 'Bill.'The Bride' decided to escape her life as a killer.",
       details:
         "https://www.imdb.com/title/tt0266697/plotsummary?ref_=tt_stry_pl",
+      video: "https://www.youtube.com/embed/7kSuas6mRpk",
     },
     {
       id: Math.random(),
@@ -86,6 +93,7 @@ function App() {
       type: " Biography | Crime | Drama  ",
       description:
         "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.",
+      video: "https://www.youtube.com/embed/iszwuX1AK6A",
     },
   ];
   const [tab, setTab] = useState(moviesData);
@@ -94,14 +102,30 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Add" style={{ position: "fixed", zIndex: "10" }}>
-        <AddMovie tab={tab} setTab={setTab} />
-      </div>
       <Navbar handleInput={setInput} handleRate={setRating} rate={rating} />
 
-      <MoviesList items={tab} input={input} rate={rating} />
-
-      <p style={{ marginBottom: "12%", color: "gray", letterSpacing: "25px" }}>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <>
+              <div className="Add" style={{ position: "fixed", zIndex: "10" }}>
+                <AddMovie tab={tab} setTab={setTab} />
+              </div>
+              <MoviesList items={tab} input={input} rate={rating} {...props} />
+            </>
+          )}
+        />
+        <Route path={`/:id`} render={(props) => <Trailer {...props} />} />
+      </Switch>
+      <p
+        style={{
+          marginBottom: "12%",
+          color: "gray",
+          letterSpacing: "25px",
+        }}
+      >
         CONTACT US
       </p>
       <div>

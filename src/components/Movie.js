@@ -1,11 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-
 import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
-
 import "./Movie.css";
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -15,14 +14,9 @@ const useStyles = makeStyles({
   },
 });
 
-const Movie = ({ item, handleName }) => {
+const Movie = ({ item, location }) => {
   return (
-    <div
-      className="element"
-      onClick={() => {
-        handleName(item.name);
-      }}
-    >
+    <div className="element">
       <div className="movie_card" id="bright">
         <div className="info_section">
           <div className="movie_header">
@@ -32,7 +26,7 @@ const Movie = ({ item, handleName }) => {
             <span className="minutes">117 min</span>
             <p className="type">{item.type}</p>
           </div>
-          <div className="movie_desc">
+          <div className="movie_desc" style={{ display: "flex" }}>
             <p className="text">{item.description}</p>
           </div>
           <div className="movie_social">
@@ -45,14 +39,17 @@ const Movie = ({ item, handleName }) => {
                   {/* rating */}
                   <div>
                     <Box component="fieldset" mb={3} borderColor="transparent">
-                      <Typography component="legend"></Typography>{" "}
-                      <Rating name="read-only" value={item.rating} readOnly />{" "}
+                      <Typography component="legend"></Typography>
+                      <Rating name="read-only" value={item.rating} readOnly />
                     </Box>
                   </div>
                 </i>
               </li>
               <li>
-                <i className="material-icons">chat_bubble</i>
+                <i className="material-icons">
+                  chat_bubble
+                  {console.log(location)}
+                </i>
               </li>
             </ul>
           </div>
